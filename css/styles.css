@@ -64,11 +64,14 @@ img {
 }
 
 .visually-hidden {
-  position: absolute;
-  clip: rect(0 0 0 0);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
 }
 
 /*---------HEADER----------*/
@@ -459,6 +462,7 @@ img {
 /*-------=====-FOOTER-=====------*/
 
 .site-footer {
+  justify-content: space-around;
   padding-top: 60px;
   padding-bottom: 60px;
 
@@ -537,6 +541,82 @@ img {
   fill: var(--white-text-color);
 }
 
+/*======FOOTER-FORM======*/
+
+.footer-form-all {
+  width: 570px;
+  height: 86px;
+  margin-left: auto;
+}
+
+.footer-form-title {
+  display: block;
+  margin-bottom: 20px;
+  color: var(--white-text-color);
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+}
+
+.footer-form {
+  display: flex;
+}
+
+.footer-form-label:hover,
+.footer-form-label:focus {
+  outline: none;
+  border-color: var(--accent-text-color);
+}
+
+.footer-form-input {
+  width: 358px;
+  height: 50px;
+  padding: 15px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.6);
+  background-color: #2f303a;
+  transition: drop-shadow var(--duration-effect) var(--timing-function),
+    border-color var(--duration-effect) var(--timing-function);
+}
+
+.footer-form-button {
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  width: 200px;
+  height: 50px;
+  padding: 10px 28px 10px 29px;
+  margin-left: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+
+  cursor: pointer;
+  color: var(--white-text-color);
+  background-color: var(--accent-text-color);
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
+  border-radius: 4px;
+  border: transparent;
+  transition: var(--duration-effect) var(--timing-function);
+}
+
+.footer-form-button:hover,
+.footer-form-button:focus {
+  background: #188ce8;
+  color: var(--white-text-color);
+  box-shadow: 0px 3px 1px rgb(0 0 0 / 10%), 0px 1px 2px rgb(0 0 0 / 8%),
+    0px 2px 2px rgb(0 0 0 / 12%);
+}
+
+.footer-button-icon {
+  margin-left: 10px;
+  width: 24px;
+  height: 24px;
+}
+
 /*=====PORTFOLIO=======*/
 
 .portfolio-line::after {
@@ -611,8 +691,6 @@ img {
   font-size: 18px;
   line-height: 1.56;
 
-  letter-spacing: 0.03em;
-
   color: var(--white-text-color);
   background-color: rgba(33, 150, 243, 0.9);
 }
@@ -681,10 +759,11 @@ img {
 }
 
 .modal {
+  position: absolute;
+  padding: 40px;
   width: 528px;
   height: 581px;
   background-color: var(--white-text-color);
-  position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -697,10 +776,173 @@ img {
   right: 8px;
   width: 30px;
   height: 30px;
+
+  cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   background-color: var(--white-text-color);
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-form-title {
+  padding-bottom: 12px;
+  text-align: center;
+
+  color: var(--title-text-color);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+}
+
+.modal-form-input {
+  display: block;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  padding-left: 42px;
+
+  box-sizing: border-box;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  transition: border-color var(--duration-effect) var(--timing-function);
+}
+
+.modal-form-input:focus {
+  outline: none;
+  border-color: var(--accent-text-color);
+}
+
+.modal-form-field {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  color: var(--primary-text-color);
+}
+
+.modal-form-input-wrap {
+  position: relative;
+  display: block;
+  margin-top: 4px;
+}
+
+.modal-form-icon {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  transition: var(--duration-effect) var(--timing-function);
+}
+
+.modal-form-input:focus + .modal-form-icon {
+  fill: var(--accent-text-color);
+  transition: fill var(--duration-effect) var(--timing-function);
+}
+
+.modal-form-message {
+  width: 100%;
+  height: 120px;
+  margin-top: 4px;
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  resize: none;
+  box-sizing: border-box;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  outline: 0;
+  transition: fill var(--duration-effect) var(--timing-function);
+}
+
+.modal-form-message:focus {
+  outline: none;
+  border-color: var(--accent-text-color);
+}
+
+.modal-form-message::placeholder {
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.modal-form-checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.modal-form-checkbox:checked + .checkbox-icon {
+  background-color: var(--accent-text-color);
+  border-color: var(--accent-text-color);
+  background-image: url(../images/icon-check.svg);
+  background-size: contain;
+  background-origin: border-box;
+  transition: background-color var(--duration-effect) var(--timing-function);
+}
+
+.checkbox-icon {
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  border-radius: 2px;
+  margin-right: 7px;
+  margin-left: 13px;
+
+  border: 2px solid var(--title-text-color);
   cursor: pointer;
+  transition: var(--duration-effect) var(--timing-function);
+}
+
+.modal-form-checkbox-label {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  margin-bottom: 30px;
+
+  font-size: 14px;
+  line-height: 1.71;
+  color: var(--primary-text-color);
+}
+
+.modal-form-link {
+  color: var(--accent-text-color);
+}
+
+.contact-form-submit {
+  display: block;
+  width: 200px;
+  height: 50px;
+  margin: 0 auto;
+
+  cursor: pointer;
+  background: var(--accent-text-color);
+  border-radius: 4px;
+  color: var(--white-text-color);
+  border: none;
+  letter-spacing: 0.06em;
+  line-height: 1.8;
+  font-size: 16px;
+  font-weight: 700;
+  transition: color var(--duration-effect) var(--timing-function),
+    background-color var(--duration-effect) var(--timing-function),
+    box-shadow var(--duration-effect) var(--timing-function);
+}
+
+.contact-form-submit:hover,
+.contact-form-submit:focus {
+  background: #188ce8;
+  color: var(--white-text-color);
+  box-shadow: 0px 3px 1px rgb(0 0 0 / 10%), 0px 1px 2px rgb(0 0 0 / 8%),
+    0px 2px 2px rgb(0 0 0 / 12%);
 }
 
 .is-hidden {
