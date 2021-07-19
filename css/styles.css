@@ -896,8 +896,13 @@ img {
   border-color: var(--accent-text-color);
   background-image: url(../images/checkbox.svg);
   background-size: contain;
+  background-repeat: no-repeat;
   background-origin: border-box;
   transition: background-color var(--duration-effect) var(--timing-function);
+}
+
+.modal-form-checkbox:focus + .checkbox-icon {
+  border-color: var(--accent-text-color);
 }
 
 .checkbox-icon:hover,
