@@ -770,6 +770,9 @@ img {
 }
 
 .button-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   padding: 0;
   top: 8px;
@@ -781,6 +784,12 @@ img {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   background-color: var(--white-text-color);
+  transition: fill var(--duration-effect) var(--timing-function);
+}
+
+.button-close:focus,
+.button-close:hover {
+  fill: var(--accent-text-color);
 }
 
 .modal-form {
@@ -789,7 +798,7 @@ img {
 }
 
 .modal-form-title {
-  padding-bottom: 12px;
+  margin-bottom: 12px;
   text-align: center;
 
   color: var(--title-text-color);
@@ -802,7 +811,6 @@ img {
   display: block;
   width: 100%;
   height: 40px;
-  margin-bottom: 10px;
   padding-left: 42px;
 
   box-sizing: border-box;
@@ -818,12 +826,16 @@ img {
 
 .modal-form-field {
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.16;
   letter-spacing: 0.01em;
   color: var(--primary-text-color);
+}
+
+.text-area {
+  margin-bottom: 20px;
 }
 
 .modal-form-input-wrap {
@@ -850,7 +862,6 @@ img {
   width: 100%;
   height: 120px;
   margin-top: 4px;
-  margin-bottom: 20px;
   padding: 12px 16px;
   resize: none;
   box-sizing: border-box;
@@ -883,14 +894,19 @@ img {
 .modal-form-checkbox:checked + .checkbox-icon {
   background-color: var(--accent-text-color);
   border-color: var(--accent-text-color);
-  background-image: url(../images/icon-check.svg);
+  background-image: url(../images/checkbox.svg);
   background-size: contain;
   background-origin: border-box;
   transition: background-color var(--duration-effect) var(--timing-function);
 }
 
+.checkbox-icon:hover,
+.checkbox-icon:focus {
+  border-color: var(--accent-text-color);
+}
+
 .checkbox-icon {
-  display: inline-block;
+  display: block;
   width: 16px;
   height: 15px;
   border-radius: 2px;
@@ -899,7 +915,8 @@ img {
 
   border: 2px solid var(--title-text-color);
   cursor: pointer;
-  transition: var(--duration-effect) var(--timing-function);
+  transition: background-color var(--duration-effect) var(--timing-function),
+    border-color var(--duration-effect) var(--timing-function);
 }
 
 .modal-form-checkbox-label {
